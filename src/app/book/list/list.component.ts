@@ -16,8 +16,8 @@ import {Book} from '../../models/book.model';
 })
 
 export class ListComponent implements OnInit {
-  displayedColumns = ['id', 'name', 'author'];
-  books: Array<any>;
+  displayedColumns = ['id', 'name', 'author', 'price', 'rating'];
+  books: Array<Book>;
   dataSource: BooksDataSource | null;
   @ViewChild(MdPaginator) paginator: MdPaginator;
 
@@ -29,7 +29,6 @@ export class ListComponent implements OnInit {
     this.bookService.getBooks()
       .map((res) => res.json())
       .subscribe(res => {
-        console.log(res);
         this.books = res;
         this.dataSource = new BooksDataSource(this.books, this.paginator);
       });

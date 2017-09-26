@@ -8,22 +8,29 @@
     <!-- ID Column -->
     <ng-container cdkColumnDef="id">
       <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
+      <md-cell *cdkCellDef="let row"> {{row.Id}} </md-cell>
     </ng-container>
 
 
     <!-- Name Column -->
     <ng-container cdkColumnDef="name">
       <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
-      <md-cell *cdkCellDef="let row"><img class="book-pic" src="{{row.pictureUrl}}" alt=""><span>{{row.name}}</span></md-cell>
+      <md-cell *cdkCellDef="let row"><img class="book-pic" src="{{row.PictureURL}}" alt=""><span>{{row.Name}}</span></md-cell>
     </ng-container>
 
     <!-- Author Column -->
     <ng-container cdkColumnDef="author">
       <md-header-cell *cdkHeaderCellDef> Author </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.author}} </md-cell>
+      <md-cell *cdkCellDef="let row"> {{row.Author}} </md-cell>
     </ng-container>
-
+    <ng-container cdkColumnDef="price">
+      <md-header-cell *cdkHeaderCellDef> Price </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.Price}} </md-cell>
+    </ng-container>
+    <ng-container cdkColumnDef="rating">
+      <md-header-cell *cdkHeaderCellDef> Rating </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.Rating}} </md-cell>
+    </ng-container>
 
     <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
     <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
