@@ -1,13 +1,19 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BookComponent} from './book.component';
-import {BookRouterModule} from './book-router.module';
-import {ListComponent} from './list/list.component';
 import {CdkTableModule} from '@angular/cdk/table';
+import {FormsModule} from '@angular/forms';
 import {
   MdPaginatorModule,
-  MdTableModule
+  MdTableModule,
+  MatInputModule,
+  MdButtonModule,
 } from '@angular/material';
+
+import {BookRouterModule} from './book-router.module';
+
+import {ListComponent} from './list/list.component';
+import {AddComponent} from './add/add.component';
+import {BookComponent} from './book.component';
 
 @NgModule({
   imports: [
@@ -15,11 +21,15 @@ import {
     CommonModule,
     BookRouterModule,
     MdPaginatorModule,
-    MdTableModule
+    MdTableModule,
+    MatInputModule,
+    MdButtonModule,
+    FormsModule,
   ],
   declarations: [
     BookComponent,
-    ListComponent
+    ListComponent,
+    AddComponent
   ]
 })
 export class BookModule {

@@ -1,0 +1,53 @@
+<h1>{{title}}</h1>
+
+<form class='example-form' #addBookForm='ngForm' (ngSubmit)='onSubmit()'>
+  <table class='example-full-width' cellspacing='0'>
+    <tr>
+      <td>
+        <md-input-container class='example-full-width'>
+          <input required mdInput placeholder='Name' name="name" [(ngModel)]="book.Name">
+        </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-input-container class='example-full-width'>
+          <input required mdInput placeholder='Author' name="author" [(ngModel)]="book.Author">
+        </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-input-container class='example-full-width'>
+          <input required mdInput placeholder='Price' type='number' name="price" [(ngModel)]="book.Price">
+        </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-input-container class='example-full-width'>
+          <input required mdInput placeholder='Rating' type='number' name="rating" [(ngModel)]="book.Rating">
+        </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-input-container class='example-full-width'>
+          <input mdInput placeholder='PictureURL' name="pictureUrl" [(ngModel)]="book.PictureURL">
+        </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-form-field class="example-full-width">
+          <textarea mdInput placeholder="Description" name="description" [(ngModel)]="book.Description"></textarea>
+        </md-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button md-raised-button type="submit">Add</button>
+      </td>
+    </tr>
+  </table>
+</form>

@@ -5,4 +5,5 @@ export class Book {
   PictureURL: string;
   Price: number;
   Rating: number;
+  Description: string;
 }
