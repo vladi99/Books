@@ -19,7 +19,7 @@ export class BookService {
       });
   }
 
-  uploadBook(book: Book): Observable<Book[]> {
+  addBook(book: Book): Observable<Book> {
     return this.http.post(this.getPostBooksUrl, JSON.stringify(book), {
       headers: this.headers
     }).map((res) => {
