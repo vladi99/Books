@@ -31,23 +31,25 @@ export class AddComponent implements OnInit {
 
   private createForm() {
     this.bookForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      author: new FormControl('', Validators.required),
-      price: new FormControl('', [
+      name: new FormControl(this.book.Name, Validators.required),
+      author: new FormControl(this.book.Author, Validators.required),
+      price: new FormControl(this.book.Price, [
         Validators.required,
         Validators.min(this.minPrice),
         Validators.max(this.maxPrice)]
       ),
-      rating: new FormControl('', [
+      rating: new FormControl(this.book.Rating, [
         Validators.required,
         Validators.min(this.minRating),
         Validators.max(this.maxRating)]
       ),
+      pictureUrl: new FormControl(this.book.PictureURL),
+      description: new FormControl(this.book.Description)
     });
   }
 
   addBook(): void {
-    this.bookService.addBook(this.book)
+    this.bookService.addBook(this.bookForm.value)
       .subscribe((res: Book) => {
         console.log(res);
         this.appRouter.navigateByUrl('books');

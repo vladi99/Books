@@ -1,6 +1,6 @@
 <h1>{{title}}</h1>
 
-<form [formGroup]="bookForm" class='example-form' (ngSubmit)='addBook()'>
+<form [formGroup]="bookForm" class='example-form'>
   <table class='example-full-width' cellspacing='0'>
     <tr>
       <td>
@@ -27,8 +27,8 @@
         <md-input-container class='example-full-width' [ngClass]="{'error': bookForm.controls['price'].errors && !bookForm.controls['price'].pristine}" dividerColor="{{bookForm.controls['price'].errors && !bookForm.controls['price'].pristine ? 'warn' : 'primary'}}">
           <input type="number" mdInput formControlName="price" placeholder="Price" required>
           <div *ngIf="bookForm.controls['price'].errors && !bookForm.controls['price'].pristine" class="error-msg">
-            <div [hidden]="!bookForm.controls['price'].errors.min">Price should be more than {{minPrice}}</div>
-            <div [hidden]="!bookForm.controls['price'].errors.max">Price should be less than {{maxPrice}}</div>
+            <div [hidden]="!bookForm.controls['price'].errors.min">Price cannot be less than {{minPrice}}</div>
+            <div [hidden]="!bookForm.controls['price'].errors.max">Price cannot be more than {{maxPrice}}</div>
             <div [hidden]="!bookForm.controls['price'].errors.required">Price is required</div>
           </div>
         </md-input-container>
@@ -39,11 +39,25 @@
         <md-input-container class='example-full-width' [ngClass]="{'error': bookForm.controls['rating'].errors && !bookForm.controls['rating'].pristine}" dividerColor="{{bookForm.controls['rating'].errors && !bookForm.controls['rating'].pristine ? 'warn' : 'primary'}}">
           <input type="number" mdInput formControlName="rating" placeholder="Rating" required>
           <div *ngIf="bookForm.controls['rating'].errors && !bookForm.controls['rating'].pristine" class="error-msg">
-            <div [hidden]="!bookForm.controls['rating'].errors.min">Rating should be more than {{minRating}}</div>
-            <div [hidden]="!bookForm.controls['rating'].errors.max">Rating should be less than {{maxRating}}</div>
+            <div [hidden]="!bookForm.controls['rating'].errors.min">Rating cannot be less than {{minRating}}</div>
+            <div [hidden]="!bookForm.controls['rating'].errors.max">Rating cannot be more than {{maxRating}}</div>
             <div [hidden]="!bookForm.controls['rating'].errors.required">Rating is required</div>
           </div>
         </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-input-container class='example-full-width'>
+          <input mdInput formControlName="pictureUrl" placeholder="Picture URL">
+        </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-form-field class="example-full-width">
+          <textarea mdInput placeholder="Description" formControlName="description"></textarea>
+        </md-form-field>
       </td>
     </tr>
     <tr>
