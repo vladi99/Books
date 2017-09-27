@@ -2,34 +2,42 @@
 
   <md-table #table [dataSource]="dataSource">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
     <!-- ID Column -->
     <ng-container cdkColumnDef="id">
-      <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.Id}} </md-cell>
+      <md-header-cell *cdkHeaderCellDef [ngClass]="'smallWidth'"> ID </md-header-cell>
+      <md-cell *cdkCellDef="let row" [ngClass]="'smallWidth'"> {{row.Id}} </md-cell>
     </ng-container>
 
+
+    <!-- Photo Column -->
+    <ng-container cdkColumnDef="photo">
+      <md-header-cell *cdkHeaderCellDef [ngClass]="'smallWidth'"> Photo </md-header-cell>
+      <md-cell *cdkCellDef="let row" [ngClass]="'smallWidth'"><img class="book-pic" src="{{row.PictureURL}}" alt=""></md-cell>
+    </ng-container>
 
     <!-- Name Column -->
     <ng-container cdkColumnDef="name">
       <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
-      <md-cell *cdkCellDef="let row"><img class="book-pic" src="{{row.PictureURL}}" alt=""><span>{{row.Name}}</span></md-cell>
+      <md-cell *cdkCellDef="let row">{{row.Name}}</md-cell>
     </ng-container>
+
 
     <!-- Author Column -->
     <ng-container cdkColumnDef="author">
       <md-header-cell *cdkHeaderCellDef> Author </md-header-cell>
       <md-cell *cdkCellDef="let row"> {{row.Author}} </md-cell>
     </ng-container>
+
+    <!-- Price Column -->
     <ng-container cdkColumnDef="price">
-      <md-header-cell *cdkHeaderCellDef> Price </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.Price}} </md-cell>
+      <md-header-cell *cdkHeaderCellDef [ngClass]="'smallWidth'"> Price </md-header-cell>
+      <md-cell *cdkCellDef="let row" [ngClass]="'smallWidth'"> {{row.Price}}$ </md-cell>
     </ng-container>
+
+    <!-- Rating Column -->
     <ng-container cdkColumnDef="rating">
-      <md-header-cell *cdkHeaderCellDef> Rating </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.Rating}} </md-cell>
+      <md-header-cell *cdkHeaderCellDef [ngClass]="'smallWidth'"> Rating </md-header-cell>
+      <md-cell *cdkCellDef="let row" [ngClass]="'smallWidth'"> {{row.Rating}} </md-cell>
     </ng-container>
 
     <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
@@ -39,7 +47,7 @@
   <md-paginator #paginator
                 [length]="books.length"
                 [pageIndex]="0"
-                [pageSize]="25"
+                [pageSize]="5"
                 [pageSizeOptions]="[5, 10, 25, 100]">
   </md-paginator>
 </div>

@@ -4,7 +4,6 @@ import {BookComponent} from './book.component';
 import {BookRouterModule} from './book-router.module';
 import {ListComponent} from './list/list.component';
 import {CdkTableModule} from '@angular/cdk/table';
-
 import {
   MdPaginatorModule,
   MdTableModule

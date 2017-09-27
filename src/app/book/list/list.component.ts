@@ -2,12 +2,12 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MdPaginator} from '@angular/material';
 import {Observable} from 'rxjs/Observable';
 import {DataSource} from '@angular/cdk/table';
+import {BookService} from '../../services/book.service';
+import {Book} from '../../models/book.model';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import {BookService} from '../../services/book.service';
-import {Book} from '../../models/book.model';
 
 @Component({
   selector: 'app-list',
@@ -16,7 +16,7 @@ import {Book} from '../../models/book.model';
 })
 
 export class ListComponent implements OnInit {
-  displayedColumns = ['id', 'name', 'author', 'price', 'rating'];
+  displayedColumns = ['id', 'photo', 'name', 'author', 'price', 'rating'];
   books: Array<Book>;
   dataSource: BooksDataSource | null;
   @ViewChild(MdPaginator) paginator: MdPaginator;
@@ -27,8 +27,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.bookService.getBooks()
-      .map((res) => res.json())
-      .subscribe(res => {
+      .subscribe((res: Book[]) => {
         this.books = res;
         this.dataSource = new BooksDataSource(this.books, this.paginator);
       });
