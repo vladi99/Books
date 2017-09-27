@@ -1,52 +1,54 @@
 <h1>{{title}}</h1>
 
-<form class='example-form' #addBookForm='ngForm' (ngSubmit)='onSubmit()'>
+<form [formGroup]="bookForm" class='example-form' (ngSubmit)='addBook()'>
   <table class='example-full-width' cellspacing='0'>
     <tr>
       <td>
-        <md-input-container class='example-full-width'>
-          <input required mdInput placeholder='Name' name="name" [(ngModel)]="book.Name">
+        <md-input-container class='example-full-width' [ngClass]="{'error': bookForm.controls['name'].errors && !bookForm.controls['name'].pristine}" dividerColor="{{bookForm.controls['name'].errors && !bookForm.controls['name'].pristine ? 'warn' : 'primary'}}">
+          <input mdInput formControlName="name" placeholder="Name" required>
+          <div *ngIf="bookForm.controls['name'].errors && !bookForm.controls['name'].pristine" class="error-msg">
+            <div [hidden]="!bookForm.controls['name'].errors.required">Name is required</div>
+          </div>
         </md-input-container>
       </td>
     </tr>
     <tr>
       <td>
-        <md-input-container class='example-full-width'>
-          <input required mdInput placeholder='Author' name="author" [(ngModel)]="book.Author">
+        <md-input-container class='example-full-width' [ngClass]="{'error': bookForm.controls['author'].errors && !bookForm.controls['author'].pristine}" dividerColor="{{bookForm.controls['author'].errors && !bookForm.controls['author'].pristine ? 'warn' : 'primary'}}">
+          <input mdInput formControlName="author" placeholder="Author" required>
+          <div *ngIf="bookForm.controls['author'].errors && !bookForm.controls['author'].pristine" class="error-msg">
+            <div [hidden]="!bookForm.controls['author'].errors.required">Author is required</div>
+          </div>
         </md-input-container>
       </td>
     </tr>
     <tr>
       <td>
-        <md-input-container class='example-full-width'>
-          <input required mdInput placeholder='Price' type='number' name="price" [(ngModel)]="book.Price">
+        <md-input-container class='example-full-width' [ngClass]="{'error': bookForm.controls['price'].errors && !bookForm.controls['price'].pristine}" dividerColor="{{bookForm.controls['price'].errors && !bookForm.controls['price'].pristine ? 'warn' : 'primary'}}">
+          <input type="number" mdInput formControlName="price" placeholder="Price" required>
+          <div *ngIf="bookForm.controls['price'].errors && !bookForm.controls['price'].pristine" class="error-msg">
+            <div [hidden]="!bookForm.controls['price'].errors.min">Price should be more than {{minPrice}}</div>
+            <div [hidden]="!bookForm.controls['price'].errors.max">Price should be less than {{maxPrice}}</div>
+            <div [hidden]="!bookForm.controls['price'].errors.required">Price is required</div>
+          </div>
         </md-input-container>
       </td>
     </tr>
     <tr>
       <td>
-        <md-input-container class='example-full-width'>
-          <input required mdInput placeholder='Rating' type='number' name="rating" [(ngModel)]="book.Rating">
+        <md-input-container class='example-full-width' [ngClass]="{'error': bookForm.controls['rating'].errors && !bookForm.controls['rating'].pristine}" dividerColor="{{bookForm.controls['rating'].errors && !bookForm.controls['rating'].pristine ? 'warn' : 'primary'}}">
+          <input type="number" mdInput formControlName="rating" placeholder="Rating" required>
+          <div *ngIf="bookForm.controls['rating'].errors && !bookForm.controls['rating'].pristine" class="error-msg">
+            <div [hidden]="!bookForm.controls['rating'].errors.min">Rating should be more than {{minRating}}</div>
+            <div [hidden]="!bookForm.controls['rating'].errors.max">Rating should be less than {{maxRating}}</div>
+            <div [hidden]="!bookForm.controls['rating'].errors.required">Rating is required</div>
+          </div>
         </md-input-container>
       </td>
     </tr>
     <tr>
       <td>
-        <md-input-container class='example-full-width'>
-          <input mdInput placeholder='PictureURL' name="pictureUrl" [(ngModel)]="book.PictureURL">
-        </md-input-container>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <md-form-field class="example-full-width">
-          <textarea mdInput placeholder="Description" name="description" [(ngModel)]="book.Description"></textarea>
-        </md-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <button md-raised-button type="submit">Add</button>
+        <button md-raised-button class="btn" [disabled]="bookForm.invalid" (click)="addBook()">Add</button>
       </td>
     </tr>
   </table>
