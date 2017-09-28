@@ -7,8 +7,10 @@ import {CdkTableModule} from '@angular/cdk/table';
 
 import {
   MdPaginatorModule,
-  MdTableModule
+  MdTableModule,
+  MatCardModule,
 } from '@angular/material';
+import { CardListComponent } from './card-list/card-list.component';
 
 @NgModule({
   imports: [
@@ -16,11 +18,13 @@ import {
     CommonModule,
     BookRouterModule,
     MdPaginatorModule,
-    MdTableModule
+    MdTableModule,
+    MatCardModule
   ],
   declarations: [
     BookComponent,
-    ListComponent
+    ListComponent,
+    CardListComponent
   ]
 })
 export class BookModule {
