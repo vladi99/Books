@@ -34,7 +34,6 @@ export class ListComponent implements OnInit {
   }
 }
 
-
 export class BooksDataSource extends DataSource<any> {
   constructor(private data: Book[], private paginator: MdPaginator) {
     super();
