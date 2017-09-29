@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Book} from '../../models/book.model';
 import {BookService} from '../../services/book.service';
 import {Router} from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-add',
+  selector: 'app-add-book',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
@@ -20,32 +20,28 @@ export class AddComponent implements OnInit {
   minRating = 1;
   maxRating = 5;
 
-  constructor(
+  constructor(@Inject(FormBuilder) fb: FormBuilder,
     private bookService: BookService,
     private appRouter: Router) {
-  }
-
-  ngOnInit() {
-    this.createForm();
-  }
-
-  private createForm() {
-    this.bookForm = new FormGroup({
-      name: new FormControl(this.book.Name, Validators.required),
-      author: new FormControl(this.book.Author, Validators.required),
-      price: new FormControl(this.book.Price, [
+    this.bookForm = fb.group({
+      name: [this.book.Name, Validators.required],
+      author: [this.book.Author, Validators.required],
+      price: [this.book.Price, [
         Validators.required,
         Validators.min(this.minPrice),
         Validators.max(this.maxPrice)]
-      ),
-      rating: new FormControl(this.book.Rating, [
+      ],
+      rating: [this.book.Rating, [
         Validators.required,
         Validators.min(this.minRating),
         Validators.max(this.maxRating)]
-      ),
-      pictureUrl: new FormControl(this.book.PictureURL),
-      description: new FormControl(this.book.Description)
+      ],
+      pictureUrl: this.book.PictureURL,
+      description: this.book.Description
     });
+  }
+
+  ngOnInit() {
   }
 
   addBook(): void {
