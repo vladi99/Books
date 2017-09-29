@@ -2,25 +2,24 @@ import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Book} from '../models/book.model';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class BookService {
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  private getPostBooksUrl = 'http://milenabooks.azurewebsites.net/api/Books';
-
   constructor(private http: Http) {
   }
 
   getBooks(): Observable<Book[]> {
-    return this.http.get(this.getPostBooksUrl)
+    return this.http.get(`${environment.apiEndpoint}/Books`)
       .map((res) => {
         return res.json();
       });
   }
 
   addBook(book: Book): Observable<Book> {
-    return this.http.post(this.getPostBooksUrl, JSON.stringify(book), {
+    return this.http.post(`${environment.apiEndpoint}/Books`, JSON.stringify(book), {
       headers: this.headers
     }).map((res) => {
       return res.json();
