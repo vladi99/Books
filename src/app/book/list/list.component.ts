@@ -16,10 +16,7 @@ import 'rxjs/add/observable/of';
 })
 
 export class ListComponent implements OnInit {
-  displayedColumns = ['id', 'photo', 'name', 'author', 'price', 'rating'];
   books: Array<Book>;
-  dataSource: BooksDataSource | null;
-  @ViewChild(MdPaginator) paginator: MdPaginator;
 
   constructor(private bookService: BookService) {
     this.books = [];
@@ -29,31 +26,6 @@ export class ListComponent implements OnInit {
     this.bookService.getBooks()
       .subscribe((res: Book[]) => {
         this.books = res;
-        this.dataSource = new BooksDataSource(this.books, this.paginator);
       });
-  }
-}
-
-export class BooksDataSource extends DataSource<any> {
-  constructor(private data: Book[], private paginator: MdPaginator) {
-    super();
-  }
-
-  /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<Book[]> {
-    const displayDataChanges = [
-      this.data,
-      this.paginator.page,
-    ];
-
-    return Observable.merge(...displayDataChanges).map(() => {
-      const data = this.data.slice();
-      // Grab the page's slice of data.
-      const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-      return data.splice(startIndex, this.paginator.pageSize);
-    });
-  }
-
-  disconnect() {
   }
 }

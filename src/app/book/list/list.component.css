@@ -1,27 +1,4 @@
-/* Structure */
-.example-container {
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-}
-
-.example-header {
-  min-height: 64px;
-  display: flex;
-  align-items: center;
-  padding-left: 24px;
-  font-size: 20px;
-}
-
-.mat-table {
-  overflow: auto;
-  max-height: 500px;
-}
-
-.book-pic {
-  width: 40px;
-  margin-top: 5px;
-}
-.smallWidth{
-  flex: 0 0 75px;
+.example-card {
+  width: 400px;
+  margin-bottom: 15px;
 }

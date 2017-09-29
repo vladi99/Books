@@ -7,6 +7,7 @@ import {
   MdTableModule,
   MatInputModule,
   MdButtonModule,
+  MatCardModule
 } from '@angular/material';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -18,6 +19,7 @@ import {BookComponent} from './book.component';
 
 @NgModule({
   imports: [
+    MatCardModule,
     FlexLayoutModule,
     CdkTableModule,
     CommonModule,
