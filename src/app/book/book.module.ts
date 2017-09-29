@@ -9,6 +9,7 @@ import {
   MdButtonModule,
 } from '@angular/material';
 
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {BookRouterModule} from './book-router.module';
 
 import {ListComponent} from './list/list.component';
@@ -17,6 +18,7 @@ import {BookComponent} from './book.component';
 
 @NgModule({
   imports: [
+    FlexLayoutModule,
     CdkTableModule,
     CommonModule,
     BookRouterModule,
