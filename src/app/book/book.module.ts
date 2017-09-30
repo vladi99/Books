@@ -1,27 +1,41 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BookComponent} from './book.component';
-import {BookRouterModule} from './book-router.module';
-import {ListComponent} from './list/list.component';
 import {CdkTableModule} from '@angular/cdk/table';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MdPaginatorModule,
-  MdTableModule
+  MdTableModule,
+  MatInputModule,
+  MdButtonModule,
+  MatCardModule
 } from '@angular/material';
+
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {BookRouterModule} from './book-router.module';
+
+import {ListComponent} from './list/list.component';
+import {AddComponent} from './add/add.component';
+import {BookComponent} from './book.component';
 
 @NgModule({
   imports: [
+    MatCardModule,
+    FlexLayoutModule,
     CdkTableModule,
     CommonModule,
     BookRouterModule,
     MdPaginatorModule,
-    MdTableModule
+    MdTableModule,
+    MatInputModule,
+    MdButtonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     BookComponent,
-    ListComponent
-  ]
+    ListComponent,
+    AddComponent
+  ],
 })
 export class BookModule {
 }

@@ -1,38 +1,23 @@
-<div class="example-container mat-elevation-z8">
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between" fxLayoutWrap="wrap">
+  <div *ngFor="let book of books" fxFlex.sm="49" fxFlex="32.5">
+    <md-card class="example-card">
+      <div class="center-text">
+        <md-card-title>{{book.Name}}</md-card-title>
+        <md-card-subtitle>{{book.Author}}</md-card-subtitle>
+      </div>
+      <div class="parent">
+        <img class="image" *ngIf="book.PictureURL" [src]="book.PictureURL">
+      </div>
+      <div class="content">
+        <div fxFlex="50" class="center-text">
+          <div>PRICE: {{book.Price}}$</div>
+          <div>RATING: {{book.Rating}}</div>
+        </div>
+        <div fxFlex="50">
+          <button md-button>VIEW DETAILS</button>
+        </div>
+      </div>
 
-  <md-table #table [dataSource]="dataSource">
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- ID Column -->
-    <ng-container cdkColumnDef="id">
-      <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
-    </ng-container>
-
-
-    <!-- Name Column -->
-    <ng-container cdkColumnDef="name">
-      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
-      <md-cell *cdkCellDef="let row"><img class="book-pic" src="{{row.pictureUrl}}" alt=""><span>{{row.name}}</span></md-cell>
-    </ng-container>
-
-    <!-- Author Column -->
-    <ng-container cdkColumnDef="author">
-      <md-header-cell *cdkHeaderCellDef> Author </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.author}} </md-cell>
-    </ng-container>
-
-
-    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
-
-  <md-paginator #paginator
-                [length]="books.length"
-                [pageIndex]="0"
-                [pageSize]="25"
-                [pageSizeOptions]="[5, 10, 25, 100]">
-  </md-paginator>
+    </md-card>
+  </div>
 </div>
