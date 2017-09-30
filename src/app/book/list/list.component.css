@@ -1,4 +1,22 @@
 .example-card {
-  width: 400px;
-  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.image {
+  height: 500px;
+  width: auto;
+  display:block;
+  margin: 0 auto
+}
+
+.parent {
+  overflow: hidden;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.content {
+  margin-top: 15px;
 }
