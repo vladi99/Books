@@ -1,9 +1,14 @@
 <div fxLayout="row" id="outer">
-  <div>
-    <md-card>
+  <md-card fxFlexFill>
+    <div fxFlex="33.3">
       <img *ngIf="book.PictureURL" [src]="book.PictureURL" alt="{{book.Name}}">
-    </md-card>
-  </div>
+    </div>
+    <div fxLayout="column" fxFlex="66.6">
+      <md-card-title fxLayoutAlign="center center">
+        {{book.Name}}
+      </md-card-title>
+    </div>
+  </md-card>
 </div>
 
 
