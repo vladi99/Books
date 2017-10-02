@@ -25,4 +25,11 @@ export class BookService {
       return res.json();
     });
   }
+
+  getBook(id: number): Observable<Book> {
+    return this.http.get(`${environment.apiEndpoint}/Books/${id}`)
+      .map((res) => {
+        return res.json();
+      });
+  }
 }

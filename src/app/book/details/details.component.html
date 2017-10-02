@@ -1,3 +1,15 @@
-<p>
-  details works!
-</p>
+<md-card class="example-card">
+  <md-card-header>
+    <md-card-title>{{book.Name}}</md-card-title>
+    <md-card-subtitle>{{book.Author}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image *ngIf="book.PictureURL" [src]="book.PictureURL">
+  <md-card-content>
+    <p>
+      {{book.Description}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>EDIT</button>
+  </md-card-actions>
+</md-card>
