@@ -1,1 +1,6 @@
-
+#outer {
+  margin-top: 5px;
+}
+img{
+  max-width: 100%;
+}

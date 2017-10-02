@@ -1,7 +1,9 @@
-<div fxLayout="row">
-  <md-card>
-    <img *ngIf="book.PictureURL" [src]="book.PictureURL" alt="{{book.Name}}">
-  </md-card>
+<div fxLayout="row" id="outer">
+  <div>
+    <md-card>
+      <img *ngIf="book.PictureURL" [src]="book.PictureURL" alt="{{book.Name}}">
+    </md-card>
+  </div>
 </div>
 
 
