@@ -1,0 +1,52 @@
+<div fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center center"><h1>{{title}}</h1></div>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <form [formGroup]="bookForm" fxFlex="30" fxFlex.sm="50" fxFlex.xs="100">
+      <div fxLayout="row">
+        <md-input-container fxFlexFill>
+          <input mdInput formControlName="name" placeholder="Name" required>
+          <md-error *ngIf="bookForm.controls['name'].hasError('required')">Name is required</md-error>
+        </md-input-container>
+      </div>
+      <div fxLayout="row">
+        <md-input-container fxFlexFill>
+          <input mdInput formControlName="author" placeholder="Author" required>
+          <md-error *ngIf="bookForm.controls['author'].hasError('required')"> Author is required</md-error>
+        </md-input-container>
+      </div>
+      <div fxLayout="row">
+        <md-input-container fxFlexFill>
+          <input type="number" mdInput formControlName="price" placeholder="Price" required>
+          <md-error *ngIf="bookForm.controls['price'].hasError('required')">Price is required</md-error>
+          <md-error *ngIf="bookForm.controls['price'].hasError('max')">Price cannot be more than {{maxPrice}}</md-error>
+          <md-error *ngIf="bookForm.controls['price'].hasError('min')">Price cannot be less than {{minPrice}}</md-error>
+        </md-input-container>
+      </div>
+      <div fxLayout="row">
+        <md-input-container fxFlexFill>
+          <input type="number" mdInput formControlName="rating" placeholder="Rating" required>
+          <md-error *ngIf="bookForm.controls['rating'].hasError('required')">Rating is required</md-error>
+          <md-error *ngIf="bookForm.controls['rating'].hasError('max')">Rating cannot be more than {{maxRating}}
+          </md-error>
+          <md-error *ngIf="bookForm.controls['rating'].hasError('min')">Rating cannot be less than {{minRating}}
+          </md-error>
+        </md-input-container>
+      </div>
+      <div fxLayout="row">
+        <md-input-container fxFlexFill>
+          <input mdInput formControlName="pictureUrl" placeholder="Picture URL">
+        </md-input-container>
+      </div>
+      <div fxLayout="row">
+        <md-form-field fxFlexFill>
+          <textarea mdInput placeholder="Description" formControlName="description"></textarea>
+        </md-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <button fxFlex="50" fxFlex.xs="100" md-raised-button class="btn" [disabled]="bookForm.invalid"
+                (click)="addBook()">Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
