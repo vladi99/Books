@@ -14,10 +14,9 @@
           <div>RATING: {{book.Rating}}</div>
         </div>
         <div fxFlex="50">
-          <button md-button>VIEW DETAILS</button>
+          <button md-button [routerLink]="['/books', book.Id]">VIEW DETAILS</button>
         </div>
       </div>
-
     </md-card>
   </div>
 </div>

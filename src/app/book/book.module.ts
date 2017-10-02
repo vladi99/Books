@@ -16,6 +16,7 @@ import {BookRouterModule} from './book-router.module';
 import {ListComponent} from './list/list.component';
 import {AddComponent} from './add/add.component';
 import {BookComponent} from './book.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import {BookComponent} from './book.component';
   declarations: [
     BookComponent,
     ListComponent,
-    AddComponent
+    AddComponent,
+    DetailsComponent
   ],
 })
 export class BookModule {
