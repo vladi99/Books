@@ -7,6 +7,7 @@
       </div>
       <div class="parent">
         <img class="image" *ngIf="book.PictureURL" [src]="book.PictureURL">
+        <img class="image" *ngIf="!book.PictureURL" src="http://www.shonephotography.com/wp-content/themes/trend/assets/img/empty/424x500.png">
       </div>
       <div class="content">
         <div fxFlex="50" class="center-text">
