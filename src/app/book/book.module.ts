@@ -7,7 +7,8 @@ import {
   MdTableModule,
   MatInputModule,
   MdButtonModule,
-  MatCardModule
+  MatCardModule,
+  MatProgressSpinnerModule,
 } from '@angular/material';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -18,6 +19,7 @@ import {ListComponent} from './list/list.component';
 import {AddComponent} from './add/add.component';
 import {BookComponent} from './book.component';
 import {DetailsComponent} from './details/details.component';
+import {LoaderComponent} from './loader/loader.component';
 
 @NgModule({
   imports: [
@@ -32,13 +34,18 @@ import {DetailsComponent} from './details/details.component';
     MdButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    RatingModule
+    RatingModule,
+    MatProgressSpinnerModule
+  ],
+  exports: [
+    LoaderComponent
   ],
   declarations: [
     BookComponent,
     ListComponent,
     AddComponent,
-    DetailsComponent
+    DetailsComponent,
+    LoaderComponent
   ],
 })
 export class BookModule {

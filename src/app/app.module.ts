@@ -8,6 +8,7 @@ import {BookModule} from './book/book.module';
 import {BookService} from './services/book.service';
 import {NavComponent} from './nav/nav.component';
 import {MdToolbarModule} from '@angular/material';
+import {LoaderService} from './services/loader.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,10 @@ import {MdToolbarModule} from '@angular/material';
       {path: '', redirectTo: '/', pathMatch: 'full'},
     ])
   ],
-  providers: [BookService],
+  providers: [
+    BookService,
+    LoaderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
