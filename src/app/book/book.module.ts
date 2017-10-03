@@ -20,6 +20,8 @@ import {AddComponent} from './add/add.component';
 import {BookComponent} from './book.component';
 import {DetailsComponent} from './details/details.component';
 import {LoaderComponent} from './loader/loader.component';
+import {BookService} from "../services/book.service";
+import {LoaderService} from "../services/loader.service";
 
 @NgModule({
   imports: [
@@ -46,6 +48,10 @@ import {LoaderComponent} from './loader/loader.component';
     AddComponent,
     DetailsComponent,
     LoaderComponent
+  ],
+  providers: [
+    BookService,
+    LoaderService
   ],
 })
 export class BookModule {

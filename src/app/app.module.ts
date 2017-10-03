@@ -5,10 +5,8 @@ import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import {BookModule} from './book/book.module';
-import {BookService} from './services/book.service';
 import {NavComponent} from './nav/nav.component';
 import {MdToolbarModule} from '@angular/material';
-import {LoaderService} from './services/loader.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
@@ -26,10 +24,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     RouterModule.forRoot([
       {path: '', redirectTo: '/', pathMatch: 'full'},
     ])
-  ],
-  providers: [
-    BookService,
-    LoaderService
   ],
   bootstrap: [AppComponent]
 })
