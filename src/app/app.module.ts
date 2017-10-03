@@ -9,6 +9,7 @@ import {BookService} from './services/book.service';
 import {NavComponent} from './nav/nav.component';
 import {MdToolbarModule} from '@angular/material';
 import {LoaderService} from './services/loader.service';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {LoaderService} from './services/loader.service';
     NavComponent,
   ],
   imports: [
+    FlexLayoutModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpModule,

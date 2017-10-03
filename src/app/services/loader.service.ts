@@ -16,9 +16,6 @@ export class LoaderService {
   }
 
   hide() {
-    // wait to simulate request
-    setTimeout(() => {
-      this.loaderSubject.next(<LoaderState>{show: false});
-    }, 1500);
+    this.loaderSubject.next(<LoaderState>{show: false});
   }
 }

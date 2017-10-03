@@ -14,17 +14,16 @@ export class LoaderComponent implements OnInit {
   private subscription: Subscription;
 
   constructor(private loaderService: LoaderService) {
-  }
-
-  ngOnInit() {
     this.subscription = this.loaderService.loaderState
       .subscribe((state: LoaderState) => {
         this.show = state.show;
       });
   }
 
+  ngOnInit() {
+  }
+
   onDestroy() {
     this.subscription.unsubscribe();
   }
 }
-

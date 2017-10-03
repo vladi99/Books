@@ -1,3 +1,4 @@
+<app-loader></app-loader>
 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between" fxLayoutWrap="wrap">
   <div *ngFor="let book of books" fxFlex.sm="49" fxFlex="32.5">
     <md-card class="example-card">
@@ -7,7 +8,8 @@
       </div>
       <div class="parent">
         <img class="image" *ngIf="book.PictureURL" [src]="book.PictureURL">
-        <img class="image" *ngIf="!book.PictureURL" src="http://www.shonephotography.com/wp-content/themes/trend/assets/img/empty/424x500.png">
+        <img class="image" *ngIf="!book.PictureURL"
+             src="http://www.shonephotography.com/wp-content/themes/trend/assets/img/empty/424x500.png">
       </div>
       <div class="content">
         <div fxFlex="50" class="center-text">
