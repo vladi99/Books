@@ -1,13 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MdPaginator} from '@angular/material';
-import {Observable} from 'rxjs/Observable';
-import {DataSource} from '@angular/cdk/table';
+import {Component, OnInit} from '@angular/core';
 import {BookService} from '../../services/book.service';
 import {Book} from '../../models/book.model';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'app-list',

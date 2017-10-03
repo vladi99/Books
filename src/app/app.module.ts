@@ -5,9 +5,9 @@ import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import {BookModule} from './book/book.module';
-import {BookService} from './services/book.service';
 import {NavComponent} from './nav/nav.component';
 import {MdToolbarModule} from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import {MdToolbarModule} from '@angular/material';
     NavComponent,
   ],
   imports: [
+    FlexLayoutModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpModule,
@@ -24,7 +25,6 @@ import {MdToolbarModule} from '@angular/material';
       {path: '', redirectTo: '/', pathMatch: 'full'},
     ])
   ],
-  providers: [BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
