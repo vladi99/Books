@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {CdkTableModule} from '@angular/cdk/table';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import {
   MdPaginatorModule,
   MdTableModule,
@@ -11,8 +12,6 @@ import {
   MatProgressSpinnerModule,
 } from '@angular/material';
 
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {BookRouterModule} from './book-router.module';
 import {RatingModule} from 'ng2-rating';
 
 import {ListComponent} from './list/list.component';
@@ -20,16 +19,17 @@ import {AddComponent} from './add/add.component';
 import {BookComponent} from './book.component';
 import {DetailsComponent} from './details/details.component';
 import {LoaderComponent} from './loader/loader.component';
-import {BookService} from "../services/book.service";
-import {LoaderService} from "../services/loader.service";
+import {BookService} from '../services/book.service';
+import {LoaderService} from '../services/loader.service';
+
+import {bookRouter} from './book.router';
 
 @NgModule({
   imports: [
+    bookRouter,
     MatCardModule,
     FlexLayoutModule,
-    CdkTableModule,
     CommonModule,
-    BookRouterModule,
     MdPaginatorModule,
     MdTableModule,
     MatInputModule,

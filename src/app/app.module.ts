@@ -1,13 +1,13 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
-import {BookModule} from './book/book.module';
 import {NavComponent} from './nav/nav.component';
 import {MdToolbarModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
+
+import {appRouter} from './app.router';
 
 @NgModule({
   declarations: [
@@ -19,11 +19,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     BrowserAnimationsModule,
     BrowserModule,
     HttpModule,
-    BookModule,
     MdToolbarModule,
-    RouterModule.forRoot([
-      {path: '', redirectTo: '/', pathMatch: 'full'},
-    ])
+    appRouter
   ],
   bootstrap: [AppComponent]
 })
