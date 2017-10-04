@@ -1,10 +1,10 @@
 import {ModuleWithProviders} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 export const ROUTER: Routes = [
   {
     path: '',
-    loadChildren: 'app/home/home.module#HomeModule'
+    loadChildren: 'app/home/home.module#HomeModule',
   },
   {
     path: 'books',
@@ -12,4 +12,6 @@ export const ROUTER: Routes = [
   },
 ];
 
-export const appRouter: ModuleWithProviders = RouterModule.forRoot(ROUTER);
+export const appRouter: ModuleWithProviders = RouterModule.forRoot(ROUTER, {
+  preloadingStrategy: PreloadAllModules
+});
