@@ -47,6 +47,8 @@ export class AddComponent implements OnInit {
   addBook(): void {
     this.bookService.addBook(this.bookForm.value)
       .subscribe((res: Book) => {
+        // TODO: Think about notification system and
+        // TODO: maybe dialog: Do you want to add more or go to books
         console.log(res);
         this.appRouter.navigateByUrl('books/all');
       }, (err) => {

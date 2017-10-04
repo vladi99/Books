@@ -11,6 +11,7 @@ import {
   MatCardModule,
   MatProgressSpinnerModule,
   MdIconModule,
+  MatDialogModule
 } from '@angular/material';
 
 import {RatingModule} from 'ng2-rating';
@@ -24,10 +25,12 @@ import {BookService} from '../services/book.service';
 import {LoaderService} from '../services/loader.service';
 
 import {bookRouter} from './book.router';
+import {DeleteComponent} from './delete/delete.component';
 
 @NgModule({
   imports: [
     bookRouter,
+    MatDialogModule,
     MatCardModule,
     MdIconModule,
     FlexLayoutModule,
@@ -49,12 +52,14 @@ import {bookRouter} from './book.router';
     ListComponent,
     AddComponent,
     DetailsComponent,
-    LoaderComponent
+    LoaderComponent,
+    DeleteComponent
   ],
   providers: [
     BookService,
     LoaderService
   ],
+  entryComponents: [DeleteComponent]
 })
 export class BookModule {
 }

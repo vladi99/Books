@@ -34,6 +34,11 @@ export class BookService {
       .finally(() => this.hideLoader());
   }
 
+  deleteBook(id: number): Observable<Book> {
+    return this.http.delete(`${environment.apiEndpoint}/Books/${id}`)
+      .map(res => res.json());
+  }
+
   private showLoader(): void {
     this.loaderService.show();
   }
