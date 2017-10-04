@@ -48,7 +48,7 @@ export class AddComponent implements OnInit {
     this.bookService.addBook(this.bookForm.value)
       .subscribe((res: Book) => {
         console.log(res);
-        this.appRouter.navigateByUrl('books');
+        this.appRouter.navigateByUrl('books/all');
       }, (err) => {
         console.log(err);
       });

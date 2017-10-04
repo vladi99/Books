@@ -1,18 +1,9 @@
 a {
   margin-right: 5px;
   text-decoration: none;
-}
-
-.user-info{
-  margin-left: auto;
-  float:right;
+  color: #fff;
 }
 
 md-toolbar {
-  margin: 0;
   background-color: #262626;
-}
-
-a {
-  color: #fff;
 }
