@@ -10,6 +10,7 @@ import {
   MdButtonModule,
   MatCardModule,
   MatProgressSpinnerModule,
+  MdIconModule,
 } from '@angular/material';
 
 import {RatingModule} from 'ng2-rating';
@@ -28,6 +29,7 @@ import {bookRouter} from './book.router';
   imports: [
     bookRouter,
     MatCardModule,
+    MdIconModule,
     FlexLayoutModule,
     CommonModule,
     MdPaginatorModule,
