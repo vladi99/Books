@@ -1,7 +1,9 @@
 <div md-dialog-content>
-  <p>Are you sure you want to delete {{book.name}}?</p>
+  <section class="mat-typography">
+    <p>Are you sure you want to delete {{book.name}}?</p>
+  </section>
 </div>
-<div md-dialog-actions>
-  <button md-button (click)="deleteBook(book.id)">Yes</button>
-  <button md-button (click)="onNoClick()">No</button>
+<div md-dialog-actions fxLayout="row">
+  <button fxFlex md-button (click)="deleteBook(book.id)">Yes</button>
+  <button fxFlex md-button (click)="onNoClick()">No</button>
 </div>
