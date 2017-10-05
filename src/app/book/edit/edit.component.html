@@ -1,3 +1,45 @@
-<p>
-  edit works!
-</p>
+<app-loader></app-loader>
+<form [formGroup]="bookForm">
+  <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="10px">
+    <md-input-container fxFlex="70">
+      <input mdInput formControlName="name" placeholder="Name" required>
+      <md-error *ngIf="bookForm.controls['name'].hasError('required')">Name is required</md-error>
+    </md-input-container>
+    <md-input-container fxFlex="30">
+      <input mdInput formControlName="author" placeholder="Author" required>
+      <md-error *ngIf="bookForm.controls['author'].hasError('required')"> Author is required</md-error>
+    </md-input-container>
+  </div>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <md-input-container fxFlex="15">
+      <input type="number" mdInput formControlName="price" placeholder="Price" required>
+      <md-error *ngIf="bookForm.controls['price'].hasError('required')">Price is required</md-error>
+      <md-error *ngIf="bookForm.controls['price'].hasError('max')">Price cannot be more than {{maxPrice}}</md-error>
+      <md-error *ngIf="bookForm.controls['price'].hasError('min')">Price cannot be less than {{minPrice}}</md-error>
+    </md-input-container>
+    <md-input-container fxFlex="15">
+      <input type="number" mdInput formControlName="rating" placeholder="Rating" required>
+      <md-error *ngIf="bookForm.controls['rating'].hasError('required')">Rating is required</md-error>
+      <md-error *ngIf="bookForm.controls['rating'].hasError('max')">Rating cannot be more than {{maxRating}}
+      </md-error>
+      <md-error *ngIf="bookForm.controls['rating'].hasError('min')">Rating cannot be less than {{minRating}}
+      </md-error>
+    </md-input-container>
+    <md-input-container fxFlex="70">
+      <input mdInput formControlName="pictureUrl" placeholder="Picture URL">
+    </md-input-container>
+  </div>
+  <div fxLayout="row">
+    <md-form-field fxFlex="100">
+      <textarea mdInput placeholder="Description" formControlName="description"></textarea>
+    </md-form-field>
+  </div>
+  <div fxLayout="row">
+    <button fxFlex="50" md-button class="btn" [disabled]="bookForm.invalid"
+            (click)="addBook()">EDIT
+    </button>
+    <button fxFlex="50" md-button class="btn"
+            (click)="onCloseClick()">CLOSE
+    </button>
+  </div>
+</form>
