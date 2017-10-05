@@ -20,11 +20,12 @@ export class BookService {
   }
 
   addBook(book: Book): Observable<Book> {
+    this.showLoader();
     return this.http.post(`${environment.apiEndpoint}/Books`, JSON.stringify(book), {
       headers: this.headers
     }).map((res) => {
       return res.json();
-    });
+    }).finally(() => this.hideLoader());
   }
 
   getBook(id: number): Observable<Book> {
