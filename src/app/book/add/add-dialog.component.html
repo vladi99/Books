@@ -1,0 +1,10 @@
+<div md-dialog-title>Successfully added {{book}}!</div>
+<div md-dialog-content>
+  <section class="mat-typography">
+    <p>Do you want to add more books?</p>
+  </section>
+</div>
+<div md-dialog-actions>
+  <button fxFlex md-button (click)="addMore()">Yes</button>
+  <button fxFlex md-button (click)="navigateToBooks()">No</button>
+</div>

@@ -20,11 +20,12 @@ export class BookService {
   }
 
   addBook(book: Book): Observable<Book> {
+    this.showLoader();
     return this.http.post(`${environment.apiEndpoint}/Books`, JSON.stringify(book), {
       headers: this.headers
     }).map((res) => {
       return res.json();
-    });
+    }).finally(() => this.hideLoader());
   }
 
   getBook(id: number): Observable<Book> {
@@ -32,6 +33,11 @@ export class BookService {
     return this.http.get(`${environment.apiEndpoint}/Books/${id}`)
       .map(res => res.json())
       .finally(() => this.hideLoader());
+  }
+
+  deleteBook(id: number): Observable<Book> {
+    return this.http.delete(`${environment.apiEndpoint}/Books/${id}`)
+      .map(res => res.json());
   }
 
   private showLoader(): void {

@@ -17,13 +17,17 @@
           </p>
         </md-card-content>
       </div>
-      <md-card-footer>
+      <div>
         <span>RATING: </span>
         <rating [readonly]="true" [ngModel]="book.Rating"></rating>
         <p fxLayoutAlign="center">
           PRICE: {{book.Price}} $
         </p>
-      </md-card-footer>
+      </div>
+      <div>
+        <button color="accent" md-raised-button><i class="material-icons">mode_edit</i>EDIT</button>
+        <button color="warn" (click)="openDialog()" md-raised-button><i class="material-icons">delete</i>DELETE</button>
+      </div>
     </div>
   </md-card>
 </div>

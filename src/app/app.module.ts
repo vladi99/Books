@@ -4,7 +4,7 @@ import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import {NavComponent} from './nav/nav.component';
-import {MdToolbarModule} from '@angular/material';
+import {MdButtonModule, MdToolbarModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
 import {appRouter} from './app.router';
@@ -17,6 +17,7 @@ import {appRouter} from './app.router';
   imports: [
     FlexLayoutModule,
     BrowserAnimationsModule,
+    MdButtonModule,
     BrowserModule,
     HttpModule,
     MdToolbarModule,
