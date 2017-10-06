@@ -13,7 +13,9 @@ import {
   MdIconModule,
   MatDialogModule,
   MatSnackBarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatToolbarModule,
+  MatAutocompleteModule
 } from '@angular/material';
 
 import {RatingModule} from 'ng2-rating';
@@ -34,6 +36,8 @@ import {EditComponent, EditNotificationComponent} from './edit/edit.component';
 @NgModule({
   imports: [
     bookRouter,
+    MatAutocompleteModule,
+    MatToolbarModule,
     MatTooltipModule,
     MatSnackBarModule,
     MatDialogModule,

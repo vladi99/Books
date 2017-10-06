@@ -44,15 +44,15 @@ export class EditComponent {
   }
 
   onCloseClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.book);
   }
 
-  editBook(id: number): void {
-    this.dialogRef.close();
-    this.bookService.deleteBook(id)
-      .subscribe(() => {
+  editBook(): void {
+    this.bookService.editBook(this.book.Id, this.bookForm.value)
+      .subscribe((res: Book) => {
+        this.dialogRef.close(res);
         this.snackBar.openFromComponent(EditNotificationComponent, {
-          duration: 2000
+          duration: 2500
         });
       });
   }

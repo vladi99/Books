@@ -44,8 +44,12 @@ export class DetailsComponent implements OnInit {
   }
 
   openEditDialog(): void {
-    this.dialog.open(EditComponent, {
+    const dialogRef = this.dialog.open(EditComponent, {
       data: this.book
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.book = result;
     });
   }
 }
