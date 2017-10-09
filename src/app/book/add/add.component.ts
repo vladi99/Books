@@ -15,12 +15,6 @@ export class AddComponent implements OnInit {
   book: Book = new Book();
   bookForm: FormGroup;
 
-  minPrice = 1;
-  maxPrice = 100;
-
-  minRating = 1;
-  maxRating = 5;
-
   showForm = true;
 
   constructor(@Inject(FormBuilder) fb: FormBuilder,
@@ -32,13 +26,13 @@ export class AddComponent implements OnInit {
       author: [this.book.Author, Validators.required],
       price: [this.book.Price, [
         Validators.required,
-        Validators.min(this.minPrice),
-        Validators.max(this.maxPrice)]
+        Validators.min(Book.minPrice),
+        Validators.max(Book.maxPrice)]
       ],
       rating: [this.book.Rating, [
         Validators.required,
-        Validators.min(this.minRating),
-        Validators.max(this.maxRating)]
+        Validators.min(Book.minRating),
+        Validators.max(Book.maxRating)]
       ],
       pictureUrl: this.book.PictureURL,
       description: this.book.Description

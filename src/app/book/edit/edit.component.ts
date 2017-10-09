@@ -13,12 +13,6 @@ export class EditComponent {
 
   bookForm: FormGroup;
 
-  minPrice = 1;
-  maxPrice = 100;
-
-  minRating = 1;
-  maxRating = 5;
-
   constructor(@Inject(FormBuilder) fb: FormBuilder,
               public dialogRef: MdDialogRef<EditComponent>,
               @Inject(MD_DIALOG_DATA) public book: Book,
@@ -30,13 +24,13 @@ export class EditComponent {
       author: [this.book.Author, Validators.required],
       price: [this.book.Price, [
         Validators.required,
-        Validators.min(this.minPrice),
-        Validators.max(this.maxPrice)]
+        Validators.min(Book.minPrice),
+        Validators.max(Book.maxPrice)]
       ],
       rating: [this.book.Rating, [
         Validators.required,
-        Validators.min(this.minRating),
-        Validators.max(this.maxRating)]
+        Validators.min(Book.minRating),
+        Validators.max(Book.maxRating)]
       ],
       pictureUrl: this.book.PictureURL,
       description: this.book.Description
