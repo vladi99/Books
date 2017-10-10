@@ -1,20 +1,4 @@
 <app-loader></app-loader>
-
-<!--Search Functionality-->
-<!--<md-toolbar>-->
-  <!--<form class="example-form">-->
-    <!--<md-form-field class="example-full-width">-->
-      <!--<input mdInput placeholder="Find Book" aria-label="Book" [mdAutocomplete]="auto" [formControl]="bookCtrl">-->
-      <!--<md-autocomplete #auto="mdAutocomplete">-->
-        <!--<md-option *ngFor="let book of filteredBooks | async" [value]="book.name">-->
-          <!--<img style="vertical-align:middle;" aria-hidden src="{{book.PictureURL}}" height="25" />-->
-          <!--<span>{{ book.Name }}</span> |-->
-          <!--<small>Author: {{book.Author}}</small>-->
-        <!--</md-option>-->
-      <!--</md-autocomplete>-->
-    <!--</md-form-field>-->
-  <!--</form>-->
-<!--</md-toolbar>-->
 <div class="list" fxLayoutAlign="space-between" fxLayoutWrap="wrap">
   <div *ngFor="let book of books" fxFlex.xs="100" fxFlex.sm="49" fxFlex="32.5">
     <md-card class="example-card">
