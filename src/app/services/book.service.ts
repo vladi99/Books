@@ -40,6 +40,14 @@ export class BookService {
       .map(res => res.json());
   }
 
+  editBook(id: number, book: Book): Observable<Book> {
+    this.showLoader();
+    return this.http.put(`${environment.apiEndpoint}/Books/${id}`, JSON.stringify(book), {
+      headers: this.headers
+    }).map(res => res.json())
+      .finally(() => this.hideLoader());
+  }
+
   private showLoader(): void {
     this.loaderService.show();
   }

@@ -1,21 +1,17 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {Book} from '../../models/book.model';
+import {Component, Inject} from '@angular/core';
+import {MD_DIALOG_DATA, MdDialogRef, MdSnackBar} from '@angular/material';
 import {BookService} from '../../services/book.service';
+import {Book} from '../../models/book.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MdDialog} from '@angular/material';
-import {AddDialogComponent} from './add-dialog.component';
 
 @Component({
-  selector: 'app-add-book',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  selector: 'app-edit-book',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css']
 })
-export class AddComponent implements OnInit {
-  title = 'Add Book';
-  book: Book = new Book();
-  bookForm: FormGroup;
+export class EditComponent {
 
-  showForm = true;
+  bookForm: FormGroup;
 
   minPrice = Book.minPrice;
   maxPrice = Book.maxPrice;
@@ -23,8 +19,10 @@ export class AddComponent implements OnInit {
   maxRating = Book.maxRating;
 
   constructor(@Inject(FormBuilder) fb: FormBuilder,
+              public dialogRef: MdDialogRef<EditComponent>,
+              @Inject(MD_DIALOG_DATA) public book: Book,
               private bookService: BookService,
-              public dialog: MdDialog) {
+              public snackBar: MdSnackBar) {
 
     this.bookForm = fb.group({
       name: [this.book.Name, Validators.required],
@@ -44,25 +42,23 @@ export class AddComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  onCloseClick(): void {
+    this.dialogRef.close(this.book);
   }
 
-  addBook(): void {
-    this.bookService.addBook(this.bookForm.value)
+  editBook(): void {
+    this.bookService.editBook(this.book.Id, this.bookForm.value)
       .subscribe((res: Book) => {
-        this.dialog.open(AddDialogComponent, {
-          data: res.Name
+        this.dialogRef.close(res);
+        this.snackBar.openFromComponent(EditNotificationComponent, {
+          duration: 2500
         });
-        this.resetForm();
       });
   }
+}
 
-  resetForm(): void {
-    this.showForm = false;
-    // setTimeout in order to clean errors
-    setTimeout(() => {
-      this.bookForm.reset();
-      this.showForm = true;
-    });
-  }
+@Component({
+  template: '<span>Successfully edited!</span>'
+})
+export class EditNotificationComponent {
 }

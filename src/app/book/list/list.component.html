@@ -3,13 +3,13 @@
   <div *ngFor="let book of books" fxFlex.xs="100" fxFlex.sm="49" fxFlex="32.5">
     <md-card class="example-card">
       <div class="center-text">
-        <md-card-title>{{book.Name}}</md-card-title>
+        <md-card-title mdTooltip="{{book.Name}}" mdTooltipPosition="above" class="ellipsis-title">{{book.Name}}</md-card-title>
         <md-card-subtitle>{{book.Author}}</md-card-subtitle>
       </div>
       <div class="parent">
         <img class="image" *ngIf="book.PictureURL" [src]="book.PictureURL">
         <img class="image" *ngIf="!book.PictureURL"
-             src="http://www.shonephotography.com/wp-content/themes/trend/assets/img/empty/424x500.png">
+             src="../../../assets/no-image-available.jpg">
       </div>
       <div class="content">
         <div fxFlex="50" class="center-text">

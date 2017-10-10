@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BookService} from '../../services/book.service';
 import {Book} from '../../models/book.model';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/startWith';
 
 @Component({
   selector: 'app-list',
@@ -10,6 +11,7 @@ import 'rxjs/add/operator/map';
 })
 
 export class ListComponent implements OnInit {
+
   books: Array<Book>;
 
   constructor(private bookService: BookService) {
@@ -19,7 +21,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.bookService.getBooks()
       .subscribe((res: Book[]) => {
-        this.books = res;
+        this.books = res.reverse();
       });
   }
 }
